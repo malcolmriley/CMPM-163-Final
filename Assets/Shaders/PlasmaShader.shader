@@ -1,6 +1,8 @@
 ﻿Shader "Custom/PlasmaShader" {
 	Properties {
 		_MainTex("Texture", 2D) = "white" {}
+		_ColorGrade("Color Grade", 2D) = "white" {}
+		_RimIntensity("Rim Intensity", Range(1.0, 8.0)) = 1.0
 	}
 
 	SubShader {
@@ -11,7 +13,7 @@
 			#pragma vertex vert
 			#pragma fragment frag
 
-			# include "UnityCG.cginc"
+			#include "UnityCG.cginc"
 
 			struct VertexInput {
 				float4 vertex : POSITION;
@@ -27,7 +29,10 @@
 			};
 
 			sampler2D _MainTex;
+			sampler2D _ColorGrade;
 			float4 _MainTex_ST;
+			
+			uniform float _RimIntensity;
 
 			VertexOutput vert(VertexInput input) {
 				VertexOutput output;
@@ -40,11 +45,11 @@
 
 			fixed4 frag(VertexOutput input) : SV_Target {
 				fixed4 color = tex2D(_MainTex, input.uv);
-				fixed4 rimColor = fixed4(1.0, 0.0, 0.0, 0.0);
+				float4 incidence = pow(dot(input.normal, input.view), _RimIntensity);
 				
-				float4 incidence = dot(input.normal, input.view);
+				fixed4 rimColor = tex2D(_ColorGrade, 1 - incidence);
 				
-				return (color * incidence) + (rimColor * (1 - incidence));
+				return color * rimColor;
 			}
 		ENDCG
 		}
