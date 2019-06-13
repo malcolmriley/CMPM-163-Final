@@ -22,6 +22,8 @@
 			#pragma fragment frag
 
 			#include "UnityCG.cginc"
+			
+			#define ERROR_EPSILON 0.02
 
 			struct VertexInput {
 				float4 vertex : POSITION;
@@ -42,9 +44,14 @@
 			
 			uniform float _RimIntensity;
 			uniform float _RimBias;
+			uniform const float4 ERROR_LIMIT = float4(ERROR_EPSILON, ERROR_EPSILON, ERROR_EPSILON, ERROR_EPSILON);
 			
 			float luma(float4 color) {
 				return (color.r + color.g + color.b) / 3;
+			}
+			
+			float4 correctError(float4 input) {
+				return max(input, ERROR_LIMIT);
 			}
 
 			VertexOutput vert(VertexInput input) {
@@ -58,7 +65,7 @@
 
 			fixed4 frag(VertexOutput input) : SV_Target {
 				float4 color = tex2D(_MainTex, input.uv);
-				float4 incidence = pow(dot(input.normal, input.view), _RimIntensity);
+				float4 incidence = correctError(pow(dot(input.normal, input.view), _RimIntensity));
 				
 				float4 rimColor = tex2D(_ColorGrade, float2(pow(luma(1 - incidence), _RimBias), 0.5));
 				
