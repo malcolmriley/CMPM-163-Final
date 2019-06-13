@@ -3,6 +3,7 @@
 		_MainTex("Texture", 2D) = "white" {}
 		_ColorGrade("Color Grade", 2D) = "white" {}
 		_RimIntensity("Rim Intensity", Range(1.0, 8.0)) = 1.0
+		_RimBias("Rim Color Bias", Range(0.01, 2.0)) = 1.0
 	}
 
 	SubShader {
@@ -40,6 +41,7 @@
 			float4 _MainTex_ST;
 			
 			uniform float _RimIntensity;
+			uniform float _RimBias;
 			
 			float luma(float4 color) {
 				return (color.r + color.g + color.b) / 3;
@@ -58,7 +60,7 @@
 				float4 color = tex2D(_MainTex, input.uv);
 				float4 incidence = pow(dot(input.normal, input.view), _RimIntensity);
 				
-				float4 rimColor = tex2D(_ColorGrade, float2(luma(1 - incidence), 0.5));
+				float4 rimColor = tex2D(_ColorGrade, float2(pow(luma(1 - incidence), _RimBias), 0.5));
 				
 				float4 outColor = color * rimColor;
 				outColor.a = luma(incidence);
