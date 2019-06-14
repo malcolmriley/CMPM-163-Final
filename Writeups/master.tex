@@ -4,6 +4,15 @@
 % Local Commands
 \newcommand{\ucscaffil}{\affiliation{\institution{University of California, Santa Cruz}\streetaddress{1156 High St - 95064}\city{Santa Cruz, CA}\country{U.S.A.}}}
 
+\newcommand{\putgraphic}[3]{
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{#1}
+	\caption{#2}
+	\Description{#3}
+\end{figure}
+}
+
 % Document Configuration
 \setcopyright{acmcopyright}
 \copyrightyear{2019}
@@ -80,32 +89,17 @@
 \section{Introduction}
 \lipsum[1]
 
-\section{VFX Explanation 1}
+\section{Explosion VFX}
+\textit{Written by Anthony Medina.\quad}
+\input{anthony-explosion.txt}
 
-\subsection{Methodology}
-\lipsum[2]
-\subsection{Implementation}
-\lipsum[5-7]
-\subsection{Result}
-\lipsum[9]
+\section{House Dissolve VFX}
+\textit{Written by Jan Yu.\quad}
+\input{jan-dissolve.txt}
 
-\section{VFX Explanation 2}
-
-\subsection{Methodology}
-\lipsum[2]
-\subsection{Implementation}
-\lipsum[5-7]
-\subsection{Result}
-\lipsum[9]
-
-\section{VFX Explanation 3}
-
-\subsection{Methodology}
-\lipsum[2]
-\subsection{Implementation}
-\lipsum[5-7]
-\subsection{Result}
-\lipsum[9]
+\section{UFO VFX}
+\textit{Written by Malcolm Riley.\quad}
+\input{malcolm-writeup}
 
 %\begin{figure}[h]
 %	\centering
@@ -113,15 +107,5 @@
 %	\caption{1907 Franklin Model D roadster. Photograph by Harris \& Ewing, Inc. [Public domain], via Wikimedia Commons. (\url{https://goo.gl/VLCRBB}).}
 %	\Description{The 1907 Franklin Model D roadster.}
 %\end{figure}
-
-\begin{acks}
-	\lipsum[3]
-\end{acks}
-
-\bibliographystyle{ACM-Reference-Format}
-\bibliography{citations}
-
-\appendix
-\lipsum
 
 \end{document}
