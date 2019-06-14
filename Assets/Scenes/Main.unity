@@ -602,7 +602,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6626504897670342801, guid: 36c8969479a9c411a93b1bf7f91138aa,
     type: 3}
   projectileOrigin: {fileID: 1120989737}
-  projectileSpeed: 5
+  projectileSpeed: 40
 --- !u!1001 &1730528570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 2129910883}
   - component: {fileID: 2129910885}
   - component: {fileID: 2129910886}
+  - component: {fileID: 2129910884}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -731,6 +732,22 @@ Transform:
   m_Father: {fileID: 332574276}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -23}
+--- !u!54 &2129910884
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129910882}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &2129910885
 MeshCollider:
   m_ObjectHideFlags: 0
