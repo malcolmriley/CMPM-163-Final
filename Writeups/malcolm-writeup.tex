@@ -3,9 +3,9 @@ The primary focus of my visual-effects efforts was in the implementation of the 
 There are four components to this effect: A modified rim shader applied to an oblong mesh forms the primary mass of the projectile, a considerably simpler transparent shader applied to a hemispherical mesh form the shockwave effect, and two simple particle systems form the trail and sparkles, respectively. The implementation of the latter two effects were trivial; being performed using Unity's built-in unlit particle shaders they will not be discussed in depth. Likewise, various other visual effects tasks were performed in the creation of this scene and will be discussed briefly in the ``Miscellaneous Effects'' section.
 
 \subsection{Modified Rim Shader}
-To add visual interest to the main mass of the energy projectile, a modified rim shader was used. As with any rim shader, the primary driving operation is the dot product of the normalized surface normal with the normalized view vector. However, it became desirable to modify this result by adding noise and an intensity factor.
+To add visual interest to the main mass of the energy projectile, a modified rim shader was used. As with any rim shader, the primary driving operation is the dot product of the normalized surface normal with the normalized view vector. However, it became desirable to modify this result by adding a screen-space noise sample and an intensity factor. As such, both the ``rim incidence'' vector and the noise sample were raised to arbitrary powers and multiplied.
 
-The noise-enhanced rim incidence is thus given by the expression:
+The noise-enhanced rim incidence would thus given by the expression:
 
 \begin{figure}[h]
 	\centering
@@ -30,8 +30,31 @@ In CG, this calculation is performed as follows:
 	\caption{CG code for the rim incidence vector calculation.}{The expression used to calculate the noise-enhanced rim incidence vector, in CG code.}
 \end{figure}
 
+The components of this noise-enhanced rim incidence vector were then averaged and then used as the UV parameter for a gradient texture lookup, allowing for an arbitrary color gradient across the surface of the mesh.
 
+Under most circumstances this calculation would be sufficient, but due to the multi-color nature of the gradients used, there were undesirable visual artifacts around the very edge of the mesh -- where the surface normals were perpendicular, or very nearly perpendicular, to the view normals. It therefore became necessary to clamp the components of the rim incidence vector to a fractional nonzero value.
+
+As a finishing touch, the alpha of the returned color was also related to the noise-enhanced rim incidence vector, creating greater opacity towards the center of mass of the mesh, and lesser opacity towards the visible edges.
 
 \subsection{Simple Transparent Shader}
+A considerably simpler effect was used to create the shockwave effect that precedes the projectile. This was created with a one-sided hemispherical mesh, deliberately UV-unwrapped by a means that is commonly considered ``wrong''.
+
+\putgraphic{uvmap}{``Incorrect'' UV Mapping of hemisphere mesh.}{A screen capture of the UV unwrap of the hemisphere mesh.}
+
+While it is typical to add seams to various edges of meshes in order to minimize texture stretching across a mesh's surface, it was in this case deliberately avoided. After some experimentation with transforming texture UVs to polar coordinates it was determined that this approach would be simpler (and likely computationally less expensive for the GPU) than trying to map spherical polar coordinates to a more ordinary wrapped rectangular texture. As such the texture was prepared to similarly be distorted in a circular pattern towards the center.
+
+To complete the effect, the texture values from the original sampled texture were mapped to a color gradient texture for the final fragment output, by the same method as in the previous section.
+
+\putgraphic{blastwave}{Texture applied using ``Incorrect'' UV Mapping}{A black-as-alpha image of the texture used for the shockwave effect.}
+
+On retrospection, it is entirely possible that this is, in fact, the standard approach to such a problem, but for me it was an important lesson: sometimes the simple, ``less-correct'' approach is the correct one.
 
 \subsection{Miscellaneous Effects}
+In the creation and assembly of the final scene, a number of ``more trivial'' visual effects were implemented. They are discussed below in no particular order:
+\begin{itemize}
+	\item \textbf{Weapon Trails:} This was accomplished by use of two particle systems. The first particle system was configured to only render the particle trail, with some modifications made to alter the color and alpha of the emitted particles over the length of the trail. The second particle system was a simple world-space spherical emitter with color-over-lifetime and size-over-lifetime parameters configured. In both cases the particles used Unity-provided standard unlit shaders as they were sufficient for these trivial effects.
+	\item \textbf{UFO Hover Effects:} This was accomplished by a simple script and particle system. A script sets the object transform position to some sine-modulated offset using time as an input parameter. Though it would have been possible to implement this effect as a vertex displacement shader, this was undesirable as the actual position of the object was needed for other effects, such as firing the weapons (to determine the origin and rotation of the spawned energy weapon object) or emitting the hover particles. The hover particles are, again, a simple world-space conical emitter with color-over-lifetime and size-over-lifetime parameters configured, using the Unity-provided standard unlit shader.
+	\item \textbf{Weapons Fire:} To perform the weapons-fire-from-saucer effect, a distance-capped raycast was performed from the camera into the scene on click, and an impact point of this raycast was determined. From this impact point and the (known) world-space transform of the flying saucer's undercarriage, a velocity vector was calculated between the two points and then applied to the newly-spawned energy weapon projectile.
+	\newpage
+	\item \textbf{Weapons Impact:} This was a matter of attaching physics components to all of the relevant objects, and implementing a script to detect collision: The house mesh received a mesh collider, and each energy weapon projectile received a capsule collider. When collisions were detected between these families of entities, a script incremented the dissolve parameter of Jan's shader, and spawned an instance of Anthony's explosion, as well as destroying the actual projectile instance. The particle emitters for the projectile instances were permitted to linger momentarily in order to preserve the projectile trails.
+\end{itemize}
