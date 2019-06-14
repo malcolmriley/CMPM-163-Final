@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LRP
+  m_Name: Dissolve
   m_Shader: {fileID: -6465566751694194690, guid: 5d6059e6fa0a1fe459ccaeee280a6a65,
     type: 3}
   m_ShaderKeywords: 
@@ -80,7 +80,7 @@ Material:
     m_Floats:
     - Vector1_4AA7D947: 30
     - Vector1_A1D13C3F: 0.01
-    - Vector1_EA211A19: 1.0013548
+    - Vector1_EA211A19: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BlendOp: 0
