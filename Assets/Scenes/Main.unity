@@ -5248,6 +5248,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1131752803}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1576797254 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: ffb8f0f785b3e4dd594cf9be3226c64a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1730528570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1618128456
 GameObject:
   m_ObjectHideFlags: 0
@@ -5624,6 +5630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d361a10dc036d49e695f68757fc888f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlledRenderer: {fileID: 1576797254}
   dissolveMaterial: {fileID: 2100000, guid: 96bc66c8d766b8547b78cc02e3595259, type: 2}
   dissolveProperty: Vector1_EA211A19
   effectSpeed: 5
