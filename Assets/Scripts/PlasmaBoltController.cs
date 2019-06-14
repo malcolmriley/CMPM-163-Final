@@ -19,11 +19,11 @@ public class PlasmaBoltController : MonoBehaviour {
 		foreach (GameObject instance in destroyImmediately) {
 			Destroy(instance);
 		}
-		Invoke("Destroy", destroyDelay);
+		Invoke("SelfDestruct", destroyDelay);
 	}
 
 	// Internal Methods
 	private void SelfDestruct() {
-		Destroy(this);
+		Destroy(this.gameObject);
 	}
 }

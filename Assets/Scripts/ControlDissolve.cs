@@ -16,10 +16,15 @@ public class ControlDissolve : MonoBehaviour {
 	[Header("Configuration")]
 	[Range(0.0F, 30.0F)]
 	public float effectSpeed;
+	public bool incremental;
 
 	// Internal Fields
 	private bool isDissolving = false;
 	private float _progress;
+
+	public void Start() {
+		_progress = 0.0F;
+	}
 
 	public void BeginDissolve() {
 		if (!isDissolving) {
@@ -28,9 +33,15 @@ public class ControlDissolve : MonoBehaviour {
 		isDissolving = true;
 	}
 
+	public void IncrementDissolve(float value) {
+		_progress += value;
+	}
+
 	public void Update() {
-		if (isDissolving) {
-			_progress = Mathf.Clamp01(_progress + (Time.deltaTime / effectSpeed));
+		if (isDissolving || incremental) {
+			if (!incremental) {
+				_progress = Mathf.Clamp01(_progress + (Time.deltaTime / effectSpeed));
+			}
 			dissolveMaterial.SetFloat(dissolveProperty, _progress);
 		}
 	}

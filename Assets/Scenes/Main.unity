@@ -5626,7 +5626,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dissolveMaterial: {fileID: 2100000, guid: 96bc66c8d766b8547b78cc02e3595259, type: 2}
   dissolveProperty: Vector1_EA211A19
-  effectSpeed: 0
+  effectSpeed: 5
+  incremental: 1
 --- !u!114 &2129910887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5643,17 +5644,6 @@ MonoBehaviour:
   onCollide:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2129910886}
-        m_MethodName: BeginDissolve
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2129910888}
         m_MethodName: SpawnPrefab
         m_Mode: 0
@@ -5662,6 +5652,17 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2129910886}
+        m_MethodName: IncrementDissolve
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.05
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

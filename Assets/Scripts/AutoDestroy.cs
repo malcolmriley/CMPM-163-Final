@@ -17,7 +17,7 @@ public class AutoDestroy : MonoBehaviour {
 	public void Update() {
 		_progress = Mathf.Clamp01(_progress + (Time.deltaTime / destroyAfter));
 		if (_progress >= 1.0F) {
-			Destroy(this);
+			Destroy(this.gameObject);
 		}
 	}
 }
