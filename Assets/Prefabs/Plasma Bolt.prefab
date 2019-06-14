@@ -51,7 +51,6 @@ MonoBehaviour:
   destroyImmediately:
   - {fileID: 2943100221825626743}
   - {fileID: 1836011133235799684}
-  - {fileID: 0}
 --- !u!54 &3872881706350914125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -94,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c033652dfcd437ab3906fa10632b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyAfter: 8
+  destroyAfter: 5
 --- !u!1 &6720339796386595186
 GameObject:
   m_ObjectHideFlags: 0

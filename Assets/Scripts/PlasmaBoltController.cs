@@ -11,6 +11,7 @@ public class PlasmaBoltController : MonoBehaviour {
 
 	[Header("Configuration")]
 	public float destroyDelay = 5.0F;
+	public bool disablePhysics = true;
 
 	[Header("Internal Use Only")]
 	public List<GameObject> destroyImmediately;
@@ -20,6 +21,10 @@ public class PlasmaBoltController : MonoBehaviour {
 			Destroy(instance);
 		}
 		Invoke("SelfDestruct", destroyDelay);
+		if (disablePhysics) {
+			Destroy(GetComponent<Rigidbody>());
+			Destroy(GetComponent<Collider>());
+		}
 	}
 
 	// Internal Methods
