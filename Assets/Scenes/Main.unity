@@ -140,12 +140,12 @@ PrefabInstance:
     - target: {fileID: 8611876940445605303, guid: c44fdc7f2654b45ada3ecdf7a9e6431d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.42
+      value: 7.04
       objectReference: {fileID: 0}
     - target: {fileID: 8611876940445605303, guid: c44fdc7f2654b45ada3ecdf7a9e6431d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: -10.22
       objectReference: {fileID: 0}
     - target: {fileID: 8611876940445605303, guid: c44fdc7f2654b45ada3ecdf7a9e6431d,
         type: 3}
@@ -708,8 +708,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2129910883}
   - component: {fileID: 2129910885}
-  - component: {fileID: 2129910886}
   - component: {fileID: 2129910884}
+  - component: {fileID: 2129910886}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -725,7 +725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129910882}
   m_LocalRotation: {x: -0.6929114, y: -0.14097445, z: -0.14097445, w: 0.6929114}
-  m_LocalPosition: {x: -7, y: 0, z: 17}
+  m_LocalPosition: {x: -5.09, y: 0, z: 11.71}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 1730528571}

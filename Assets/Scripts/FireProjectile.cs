@@ -27,6 +27,7 @@ public class FireProjectile : MonoBehaviour {
 		// Apply force
 		Rigidbody body = instance.GetComponent<Rigidbody>();
 		if (body != null) {
+			// Debug.DrawRay(projectileOrigin.position, vector - projectileOrigin.position, Color.red, 5.0F);
 			body.velocity = (vector - projectileOrigin.position).normalized * projectileSpeed;
 		}
 	}
