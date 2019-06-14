@@ -424,6 +424,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 99449738}
     m_Modifications:
+    - target: {fileID: 3396149238008665239, guid: 36c8969479a9c411a93b1bf7f91138aa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6626504897670342801, guid: 36c8969479a9c411a93b1bf7f91138aa,
         type: 3}
       propertyPath: m_Name
@@ -483,6 +488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943100221825626743, guid: 36c8969479a9c411a93b1bf7f91138aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Bolt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c8969479a9c411a93b1bf7f91138aa, type: 3}
