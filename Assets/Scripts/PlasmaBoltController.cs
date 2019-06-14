@@ -15,6 +15,8 @@ public class PlasmaBoltController : MonoBehaviour {
 
 	[Header("Internal Use Only")]
 	public List<GameObject> destroyImmediately;
+	public ParticleSystem sparkleEmitter;
+	public ParticleSystem trailEmitter;
 
 	public void InitiateDestruction() {
 		foreach (GameObject instance in destroyImmediately) {
@@ -25,10 +27,16 @@ public class PlasmaBoltController : MonoBehaviour {
 			Destroy(GetComponent<Rigidbody>());
 			Destroy(GetComponent<Collider>());
 		}
+		HaltEmitter(sparkleEmitter);
+		HaltEmitter(trailEmitter);
 	}
 
 	// Internal Methods
 	private void SelfDestruct() {
 		Destroy(this.gameObject);
+	}
+
+	private void HaltEmitter(ParticleSystem system) {
+		system.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 	}
 }
