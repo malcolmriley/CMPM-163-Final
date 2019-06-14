@@ -22,7 +22,9 @@ public class ControlDissolve : MonoBehaviour {
 	private float _progress;
 
 	public void BeginDissolve() {
-		_progress = 0.0F;
+		if (!isDissolving) {
+			_progress = 0.0F;
+		}
 		isDissolving = true;
 	}
 
