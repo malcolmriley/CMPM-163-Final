@@ -355,7 +355,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 807ac51d8066a4ad8b9c2ee8dcb6bb96, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -660,6 +660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129910883}
   - component: {fileID: 2129910884}
+  - component: {fileID: 2129910885}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -697,3 +698,17 @@ MonoBehaviour:
   DissolveMaterial: {fileID: 2100000, guid: 96bc66c8d766b8547b78cc02e3595259, type: 2}
   TargetTime: 0
   AttackHouse: 0
+--- !u!64 &2129910885
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129910882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4887216478360415443, guid: ffb8f0f785b3e4dd594cf9be3226c64a, type: 3}
