@@ -5,4 +5,4 @@ Anthony Medina - Created explosion and smoke effects.
 
 Jan Yu - Created an interactable dissolve effect using shader graphs and noise.
 
-Malcolm Riley - 3D Models, Plasma Shot VFX, Scripting, Main Scene assembly, Documentation
+Malcolm Riley - 3D Models, Plasma Shot VFX, Hover VFX, Scripting, Main Scene assembly, Documentation
