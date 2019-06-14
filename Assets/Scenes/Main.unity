@@ -5558,6 +5558,7 @@ GameObject:
   - component: {fileID: 2129910885}
   - component: {fileID: 2129910884}
   - component: {fileID: 2129910886}
+  - component: {fileID: 2129910887}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -5625,3 +5626,15 @@ MonoBehaviour:
   dissolveMaterial: {fileID: 2100000, guid: 96bc66c8d766b8547b78cc02e3595259, type: 2}
   dissolveProperty: Vector1_EA211A19
   effectSpeed: 0
+--- !u!114 &2129910887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129910882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f0c9486111744e8bd34d28fb65ca2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
