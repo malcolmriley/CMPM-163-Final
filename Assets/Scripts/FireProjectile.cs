@@ -17,6 +17,18 @@ public class FireProjectile : MonoBehaviour {
 	public float projectileSpeed = 5.0F;
 
 	public void Fire(Vector3 vector) {
+		// Instantiate
+		GameObject instance = Instantiate(projectilePrefab);
 
+		// Set position and rotation
+		instance.transform.LookAt(vector);
+		instance.transform.position = projectileOrigin.position;
+
+		// Apply force
+		Rigidbody body = instance.GetComponent<Rigidbody>();
+		if (body != null) {
+			Vector3 forceVector = (vector - projectileOrigin.position).normalized * projectileSpeed;
+			body.AddForce(forceVector, ForceMode.Force);
+		}
 	}
 }
