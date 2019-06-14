@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6626504897670342802}
+  - component: {fileID: 7498970542581664486}
   m_Layer: 0
   m_Name: Plasma Bolt
   m_TagString: Untagged
@@ -32,6 +33,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7498970542581664486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626504897670342801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cae9c3f7c3e140e6b2b63d719e43d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managedMaterials:
+  - {fileID: 2100000, guid: 1eaf72beb8b6b48a9b1c5ee308913de0, type: 2}
+  dimensions: {x: 512, y: 512}
+  scale: 25
+  textureName: _NoiseTex
 --- !u!1001 &6626504897976429438
 PrefabInstance:
   m_ObjectHideFlags: 0

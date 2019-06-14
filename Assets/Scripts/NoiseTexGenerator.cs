@@ -15,7 +15,7 @@ public class NoiseTexGenerator : MonoBehaviour {
 	public Vector2Int dimensions;
 	[Min(1.0F)]
 	public float scale;
-	public string textureName = "_NoiseTexture";
+	public string textureName = "_NoiseTex";
 
 	public void Start() {
 		foreach (Material iteratedMaterial in managedMaterials) {
