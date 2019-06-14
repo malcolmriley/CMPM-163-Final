@@ -14,7 +14,7 @@ public class FireProjectile : MonoBehaviour {
 	public Transform projectileOrigin;
 
 	[Header("Configuration")]
-	public float projectileSpeed;
+	public float projectileSpeed = 5.0F;
 
 	public void Fire(Vector3 vector) {
 
