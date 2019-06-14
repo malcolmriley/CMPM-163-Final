@@ -10,6 +10,7 @@ public class ControlDissolve : MonoBehaviour {
 
 	// Public Fields
 	[Header("References")]
+	public MeshRenderer controlledRenderer;
 	public Material dissolveMaterial;
 	public string dissolveProperty;
 
@@ -21,9 +22,12 @@ public class ControlDissolve : MonoBehaviour {
 	// Internal Fields
 	private bool isDissolving = false;
 	private float _progress;
+	private Material _material;
 
 	public void Start() {
 		_progress = 0.0F;
+		_material = Instantiate(dissolveMaterial);
+		controlledRenderer.material = _material;
 	}
 
 	public void BeginDissolve() {
@@ -42,7 +46,7 @@ public class ControlDissolve : MonoBehaviour {
 			if (!incremental) {
 				_progress = Mathf.Clamp01(_progress + (Time.deltaTime / effectSpeed));
 			}
-			dissolveMaterial.SetFloat(dissolveProperty, _progress);
+			_material.SetFloat(dissolveProperty, _progress);
 		}
 	}
 }
