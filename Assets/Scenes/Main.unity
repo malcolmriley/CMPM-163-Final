@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 1100471699}
   - component: {fileID: 1100471698}
   - component: {fileID: 1100471697}
+  - component: {fileID: 1100471700}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -383,6 +384,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100471695}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1100471700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100471695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f0c9486111744e8bd34d28fb65ca2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monitoredTag: Projectile
+  onCollide:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnCollideEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1120989736
 GameObject:
   m_ObjectHideFlags: 0

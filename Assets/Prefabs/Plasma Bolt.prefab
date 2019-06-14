@@ -48,9 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyDelay: 8
+  disablePhysics: 1
   destroyImmediately:
   - {fileID: 2943100221825626743}
   - {fileID: 1836011133235799684}
+  sparkleEmitter: {fileID: 6641655966176281305}
+  trailEmitter: {fileID: 8107614701681422541}
 --- !u!54 &3872881706350914125
 Rigidbody:
   m_ObjectHideFlags: 0
