@@ -15,10 +15,9 @@ public class AutoDestroy : MonoBehaviour {
 	private float _progress;
 
 	public void Update() {
-		_progress = Mathf.Clamp01(_progress + (Time.deltaTime / destroyAfter)) {
-			if (_progress >= 1.0F) {
-				Destroy(this);
-			}
+		_progress = Mathf.Clamp01(_progress + (Time.deltaTime / destroyAfter));
+		if (_progress >= 1.0F) {
+			Destroy(this);
 		}
 	}
 }
