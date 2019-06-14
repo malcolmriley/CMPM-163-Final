@@ -650,6 +650,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1730528570}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &2085169394 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: ffb8f0f785b3e4dd594cf9be3226c64a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1730528570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2129910882
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +667,7 @@ GameObject:
   - component: {fileID: 2129910883}
   - component: {fileID: 2129910884}
   - component: {fileID: 2129910885}
+  - component: {fileID: 2129910886}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -712,3 +719,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4887216478360415443, guid: ffb8f0f785b3e4dd594cf9be3226c64a, type: 3}
+--- !u!114 &2129910886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129910882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d361a10dc036d49e695f68757fc888f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlledRenderer: {fileID: 2085169394}
+  dissolveMaterial: {fileID: 2100000, guid: 96bc66c8d766b8547b78cc02e3595259, type: 2}
+  dissolveProperty: Vector1_EA211A19
