@@ -568,6 +568,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb1887d7131c41cd908c23402df0dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onFireWeapon:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: FireWeaponEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  cooldownTime: 0.25
+  maxDistance: 50
 --- !u!1001 &1730528570
 PrefabInstance:
   m_ObjectHideFlags: 0
