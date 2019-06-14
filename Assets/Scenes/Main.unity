@@ -602,7 +602,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6626504897670342801, guid: 36c8969479a9c411a93b1bf7f91138aa,
     type: 3}
   projectileOrigin: {fileID: 1120989737}
-  projectileSpeed: 0
+  projectileSpeed: 5
 --- !u!1001 &1730528570
 PrefabInstance:
   m_ObjectHideFlags: 0
