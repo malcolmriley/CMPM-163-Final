@@ -1,1 +1,37 @@
-Writeup!
+The primary focus of my visual-effects efforts was in the implementation of the UFO's energy weapon effects.
+\putgraphic{plasmabolt}{The primary energy projectile effect.}{A close view of the UFO's primary energy projectile effect.}
+There are four components to this effect: A modified rim shader applied to an oblong mesh forms the primary mass of the projectile, a considerably simpler transparent shader applied to a hemispherical mesh form the shockwave effect, and two simple particle systems form the trail and sparkles, respectively. The implementation of the latter two effects were trivial; being performed using Unity's built-in unlit particle shaders they will not be discussed in depth. Likewise, various other visual effects tasks were performed in the creation of this scene and will be discussed briefly in the ``Miscellaneous Effects'' section.
+
+\subsection{Modified Rim Shader}
+To add visual interest to the main mass of the energy projectile, a modified rim shader was used. As with any rim shader, the primary driving operation is the dot product of the normalized surface normal with the normalized view vector. However, it became desirable to modify this result by adding noise and an intensity factor.
+
+The noise-enhanced rim incidence is thus given by the expression:
+
+\begin{figure}[h]
+	\centering
+	\[
+		R = (\mathbf{\hat{I}_N} \cdot \mathbf{\hat{I}_V})^k \times T^j
+	\]
+	\caption{Rim incidence vector equation.}
+	\Description{The expression used to calculate the rim incidence vector.}
+\end{figure}
+
+Where $\mathbf{\hat{I}_N}$ is the normalized surface normal, $\mathbf{\hat{I}_V}$ is the normalized view vector, $k$ is an arbitrary ``Rim Intensity'' factor, $T$ is the noise texture sample color, and $j$ is another arbitrary intensity factor.
+
+In CG, this calculation is performed as follows:
+
+\begin{figure}[h]
+	\begin{verbatim}
+		pow(dot(input.normal, input.view), _RimIntensity)
+	\end{verbatim}
+	\begin{verbatim}
+		* pow(noise, 1 - _NoiseIntensity)
+	\end{verbatim}
+	\caption{CG code for the rim incidence vector calculation.}{The expression used to calculate the noise-enhanced rim incidence vector, in CG code.}
+\end{figure}
+
+
+
+\subsection{Simple Transparent Shader}
+
+\subsection{Miscellaneous Effects}
