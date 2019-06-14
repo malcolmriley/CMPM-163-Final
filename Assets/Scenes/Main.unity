@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSpeed: 1
-  hoverIntensity: 10
+  hoverIntensity: 1
 --- !u!114 &1618128459
 MonoBehaviour:
   m_ObjectHideFlags: 0
