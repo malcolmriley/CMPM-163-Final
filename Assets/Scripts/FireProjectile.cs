@@ -21,11 +21,11 @@ public class FireProjectile : MonoBehaviour {
 		GameObject instance = Instantiate(projectilePrefab);
 
 		// Set position and rotation
-		instance.transform.LookAt(vector);
 		instance.transform.position = projectileOrigin.position;
+		instance.transform.LookAt(vector);
 
 		// Apply force
-		Rigidbody body = instance.GetComponent<Rigidbody>();
+		Rigidbody body = instance.GetComponentInChildren<Rigidbody>();
 		if (body != null) {
 			// Debug.DrawRay(projectileOrigin.position, vector - projectileOrigin.position, Color.red, 5.0F);
 			body.velocity = (vector - projectileOrigin.position).normalized * projectileSpeed;
