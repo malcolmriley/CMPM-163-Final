@@ -1,0 +1,6 @@
+# TeX Working Files
+*.aux
+*.gz
+*.log
+*.cut
+*.out
