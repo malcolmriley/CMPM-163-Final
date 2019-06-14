@@ -27,8 +27,7 @@ public class FireProjectile : MonoBehaviour {
 		// Apply force
 		Rigidbody body = instance.GetComponent<Rigidbody>();
 		if (body != null) {
-			Vector3 forceVector = (vector - projectileOrigin.position).normalized * projectileSpeed;
-			body.AddForce(forceVector, ForceMode.Force);
+			body.velocity = (vector - projectileOrigin.position).normalized * projectileSpeed;
 		}
 	}
 }
