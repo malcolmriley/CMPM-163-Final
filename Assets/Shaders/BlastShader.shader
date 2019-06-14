@@ -1,6 +1,7 @@
 ﻿Shader "Custom/BlastShader" {
 	Properties {
-	_MainTex("Texture", 2D) = "white" {}
+		_MainTex("Texture", 2D) = "white" {}
+		_ColorGrade("Color Grade", 2D) = "white" {}
 	}
 
 	SubShader {
@@ -12,7 +13,7 @@
 	Pass {
 		
 		ZWrite Off
-		Blend SrcAlpha DstAlpha
+		Blend SrcAlpha One
 		
 		CGPROGRAM
 			#pragma vertex vert
@@ -31,7 +32,12 @@
 			};
 
 			sampler2D _MainTex;
+			sampler2D _ColorGrade;
 			float4 _MainTex_ST;
+			
+			float luma(float4 color) {
+				return (color.r + color.g + color.b) / 3;
+			}
 
 			VertexOutput vert(VertexInput input) {
 				VertexOutput output;
@@ -41,7 +47,10 @@
 			}
 
 			fixed4 frag(VertexOutput input) : SV_Target {
-				fixed4 color = tex2D(_MainTex, input.uv);
+				float4 textureSample = tex2D(_MainTex, input.uv);
+				float textureLuma = luma(textureSample);
+				float4 color = tex2D(_ColorGrade, float2(1 - textureLuma, 0.5F));
+				color.a = textureLuma * textureSample.a;
 				return color;
 			}
 		ENDCG
